@@ -25,16 +25,14 @@ app.use(cors({
 
 app.use('/api/workouts' ,workoutRoutes)
 app.use('/api/user' ,UserRoutes)
+mongoose.connect(process.env.URI)
+  .then(() => console.log("Connected to DB"))
+  .catch((error) => console.log(error));
 
-mongoose.connect(process.env.URI).then(()=>{
-    app.listen(process.env.PORT ,()=>{
-        console.log("connected to db and listening to port 4000")
-    })
-}).catch((error)=>{
-    console.log(error)
-})
+// Export the Express app for Vercel
+module.exports = app;
+
 app.get('/' ,(req ,res) =>{
     res.json({messg:'welcome to app'})
 })
 
-module.exports = app
