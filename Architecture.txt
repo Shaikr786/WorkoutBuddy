@@ -1,0 +1,28 @@
+                                MVC Architecture
+                               ::::::::::::::::::
+
+                        ┌───────────────────────────────────┐
+                        │        User (Frontend)           │
+                        │  React App (Workout Buddy)       │
+                        │  - Pages (Home, Login, Signup)   │
+                        │  - Components (Navbar, Form)     │
+                        │  - Context API for State Mgmt    │
+                        └───────────────────────────────────┘
+                                     │
+                                     ▼
+                        ┌───────────────────────────────────┐
+                        │           Controller (API)        │
+                        │      Express.js & Node.js         │
+                        │ - Handles Requests & Responses    │
+                        │ - Validates Input, Auth Middleware│
+                        │ - Calls Model for DB Operations   │
+                        └───────────────────────────────────┘
+                                     │
+                                     ▼
+                        ┌───────────────────────────────────┐
+                        │           Model (Database)        │
+                        │      MongoDB & Mongoose ODM       │
+                        │ - Defines User & Workout Schemas  │
+                        │ - Stores Workout Logs & Users     │
+                        │ - Queries & CRUD Operations       │
+                        └───────────────────────────────────┘
