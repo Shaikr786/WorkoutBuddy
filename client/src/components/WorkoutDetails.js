@@ -1,8 +1,12 @@
 import { useWorkoutsContext } from '../hooks/useWorkoutsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
 
+
 // date fns
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+
+
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const WorkoutDetails = ({ workout }) => {
   const { dispatch } = useWorkoutsContext()
@@ -13,7 +17,7 @@ const WorkoutDetails = ({ workout }) => {
       return
     }
 
-    const response = await fetch('/api/workouts/' + workout._id, {
+    const response = await fetch(`${API_BASE_URL}/api/workouts/` + workout._id, {
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${user.token}`

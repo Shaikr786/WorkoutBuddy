@@ -6,13 +6,16 @@ import { useAuthContext } from "../hooks/useAuthContext"
 import WorkoutDetails from '../components/WorkoutDetails'
 import WorkoutForm from '../components/WorkoutForm'
 
+
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 const Home = () => {
   const {workouts, dispatch} = useWorkoutsContext()
   const {user} = useAuthContext()
 
   useEffect(() => {
     const fetchWorkouts = async () => {
-      const response = await fetch('/api/workouts', {
+      const response = await fetch(`${API_BASE_URL}/api/workouts`, {
         headers: {'Authorization': `Bearer ${user.token}`},
       })
       const json = await response.json()
