@@ -18,7 +18,7 @@ app.use(express.json())
 
 
 app.use(cors({
-    origin: ["https://workout-buddy-khaki.vercel.app"],
+    origin: [""],
     methods: ["POST", "GET"],
     credentials: true
   }));
